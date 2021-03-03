@@ -3,7 +3,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore'
 import { LogBox, Platform } from 'react-native'
-import { DocComponent } from './components/component'
+import { DocComponent } from './components/DocComponent'
 
 if (Platform.OS !== 'web') {
   LogBox.ignoreLogs(['Setting a timer'])
