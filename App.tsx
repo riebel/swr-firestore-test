@@ -1,21 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import 'firebase/firestore'
+import 'firebase/auth'
+import { Fuego, FuegoProvider } from '@nandorojo/swr-firestore'
+import { LogBox, Platform } from 'react-native'
+import { DocComponent } from './components/component'
+
+if (Platform.OS !== 'web') {
+  LogBox.ignoreLogs(['Setting a timer'])
+}
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCbWlch8RkhJjOrtakzGwkCgaMdWSrwMg8",
+  authDomain: "swr-firestore-next-js-exemple.firebaseapp.com",
+  databaseURL: "https://swr-firestore-next-js-exemple.firebaseio.com",
+  projectId: "swr-firestore-next-js-exemple",
+  storageBucket: "swr-firestore-next-js-exemple.appspot.com",
+  messagingSenderId: "695152855046",
+  appId: "1:695152855046:web:6b23efb9573031fe6e5b87",
+  measurementId: "G-LV1EXDS2L9"
+};
+
+const fuego = new Fuego(firebaseConfig)
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <FuegoProvider fuego={fuego}>
+      <DocComponent />
+    </FuegoProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
