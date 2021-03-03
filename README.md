@@ -2,6 +2,7 @@
 A basic setup for Expo with @nandorojo/swr-firestore
 
 Prerequisites:
+
 Install expo-cli:
 
 `npm install -g expo-cli`
